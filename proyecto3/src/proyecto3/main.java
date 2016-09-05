@@ -353,14 +353,18 @@ public class main extends javax.swing.JFrame {
 
     private void buscar_amistadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_amistadActionPerformed
         // TODO add your handling code here:
-        boolean amistad = false;
+        int amistad = 0;
         for (Edge e : graph.getEachEdge()) {
             if (e.getId().equals(box1.getSelectedItem().toString() + box2.getSelectedItem().toString())) {
                 son_amigos.setText("SI");
-                amistad = true;
+                amistad++;
+            }
+            if (e.getId().equals(box2.getSelectedItem().toString() + box1.getSelectedItem().toString())) {
+                son_amigos.setText("SI");
+                amistad++;
             }
         }
-        if (amistad == false) {
+        if (amistad!=2) {
             son_amigos.setText("NO");
         }
     }//GEN-LAST:event_buscar_amistadActionPerformed
